@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Xanh Dương</title>
+
+<style>
+:root{
+  --main:#1976d2;
+  --bg:#eef6ff;
+  --card:#ffffff;
+  --text:#222;
+}
+
+body.dark{
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  background:var(--main);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#1565c0;
+  padding:10px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+}
+
+.hero{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+button{
+  background:var(--main);
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.panel{
+  width:320px;
+  margin:30px auto;
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.panel input,
+.panel select{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  background:var(--main);
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1 id="title">Website Của Tôi</h1>
+<p>Giao diện màu xanh dương</p>
+</header>
+
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#">Giới thiệu</a>
+<a href="#">Dịch vụ</a>
+<a href="#">Liên hệ</a>
+</nav>
+
+<section class="hero">
+<h1>Xin chào!</h1>
+<p>Đây là website mẫu có thể tùy chỉnh.</p>
+<br>
+<button onclick="alert('Chào mừng bạn!')">Bắt đầu</button>
+</section>
+
+<div class="panel">
+<h2>Tùy chỉnh Website</h2>
+
+<label>Tên Website</label>
+<input id="nameInput" placeholder="Nhập tên...">
+
+<button onclick="changeName()">Đổi tên</button>
+
+<br><br>
+
+<label>Màu chủ đạo</label>
+<input type="color" id="colorPicker" value="#1976d2">
+
+<button onclick="changeColor()">Đổi màu</button>
+
+<br><br>
+
+<label>Giao diện</label>
+
+<select onchange="changeTheme(this.value)">
+<option value="light">Sáng</option>
+<option value="dark">Tối</option>
+</select>
+
+</div>
+
+<footer>
+© 2026 Website Demo
+</footer>
+
+<script>
+
+function changeName(){
+let name=document.getElementById("nameInput").value;
+if(name!=""){
+document.getElementById("title").innerText=name;
+document.title=name;
+}
+}
+
+function changeColor(){
+let c=document.getElementById("colorPicker").value;
+document.documentElement.style.setProperty("--main",c);
+}
+
+function changeTheme(mode){
+if(mode=="dark"){
+document.body.classList.add("dark");
+}else{
+document.body.classList.remove("dark");
+}
+}
+
+</script>
+
+</body>
+</html>
